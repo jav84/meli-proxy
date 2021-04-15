@@ -1,0 +1,26 @@
+{
+  "name": "meli-proxy",
+  "version": "1.0.0",
+  "description": "Proxy application for Meli APIs",
+  "main": "proxy.js",
+  "scripts": {
+    "standalone": "node proxy.js",
+    "start": "forever proxy.js",
+    "dev": "set SINGLE_REDIS=true && nodemon proxy.js"
+  },
+  "dependencies": {
+    "http-proxy": "^1.18.1",
+    "ioredis": "^4.26.0",
+    "loglevel": "^1.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jav84/meli-proxy.git"
+  },
+  "author": "Javier Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jav84/meli-proxy/issues"
+  },
+  "homepage": "https://github.com/jav84/meli-proxy#readme"
+}

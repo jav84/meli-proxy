@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proxy Admin</title>    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="site.css" />    
+</head>
+<body onload="getItems();getHits();">
+
+<div class="body-content">
+    <div class="leftHalf">
+        <table id="tblTodo" class="table table-hover">
+            <caption>Quotas</caption>
+            <thead>
+                <tr>
+                    <th class="col-md-3">
+                        Type
+                    </th>
+                    <th class="col-md-4">
+                        Value
+                    </th>
+                    <th class="col-md-4">
+                        limit
+                    </th>
+                    <th class="col-md-2">
+                        ttl
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="rightHalf">
+        <form id="frmTodo" class="form-horizontal" method="post" enctype="multipart/form-data">
+             <fieldset>
+                 <legend>Add quota</legend>
+                 <div class="form-group">
+                     <label class="" for="selType">type</label>
+                     <div class="">
+                         <select id="selType" name="selType" >
+                             <option value="ip">IP</option>
+                             <option value="path">PATH</option>
+                             <option value="ippath">IP+PATH</option>                        
+                        </select>
+                     </div>
+                 </div>                 
+                 <!-- Text input-->
+                 <div class="form-group">
+                    <label class="" for="txtValue">Value</label>
+                    <div class="">
+                        <input id="txtValue" name="txtValue" type="text" placeholder="" class="form-control input-md" />
+                    </div>
+                </div>
+                 <!-- Text input-->
+                 <div class="form-group">
+                    <label class="" for="txtLimit">Limit</label>
+                    <div class="">
+                        <input id="txtLimit" name="txtLimit" type="text" placeholder="" class="form-control input-md" />
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                   <label class="" for="txtTtl">TTL</label>
+                   <div class="">
+                       <input id="txtTtl" name="txtTtl" type="text" placeholder="" class="form-control input-md" />
+                   </div>
+               </div>
+                <div class="form-group">
+                    <button id="btnSave" type="button" name="btnSave" value="Save" onclick="saveItem()">Add Quota</button>
+                </div>
+             </fieldset>
+         </form>
+     </div>
+</div>
+
+<div class="body-content">
+    <div class="leftHalf">
+        <table id="tblHits" class="table table-hover">
+            <caption>Hits</caption>
+            <thead>
+                <tr>
+                    <th class="col-md-3">
+                        Key
+                    </th>
+                    <th class="col-md-4">
+                        count
+                    </th>
+                    <th class="col-md-2">
+                        ttl
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>    
+    </div>
+    <div class="rightHalf">
+        <button id="btnRefresh" type="button" name="btnRefresh" value="Refresh" onclick="getHits()">Refresh Hits</button>
+        <button id="btnFlush" type="button" name="btnFlush" value="Flush" onclick="flushRedis()">Flush Redis</button>
+    </div>
+</div>
+
+<footer>
+    <hr />
+    <p>Proxy Admin</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="httputil.js"></script>
+<script src="script.js"></script>

@@ -1,0 +1,27 @@
+{
+  "name": "meli-proxy-admin",
+  "version": "1.0.0",
+  "description": "Proxy admin application for Meli APIs",
+  "main": "proxy-admin.js",
+  "scripts": {
+    "start": "forever proxy-admin.js",
+    "dev": "set SINGLE_REDIS=true && nodemon proxy-admin.js"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "ioredis": "^4.26.0",
+    "loglevel": "^1.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jav84/meli-proxy.git"
+  },
+  "author": "Javier Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jav84/meli-proxy/issues"
+  },
+  "homepage": "https://github.com/jav84/meli-proxy#readme"
+}
